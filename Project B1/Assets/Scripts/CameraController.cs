@@ -17,10 +17,10 @@ public class CameraController : MonoBehaviour {
         C_UP = KeyCode.Space,
         C_DOWN = KeyCode.C,
         SPEED_MOD = KeyCode.LeftShift,
-        X_ROTATE_NEG = KeyCode.RightArrow,
-        X_ROTATE_POS = KeyCode.LeftArrow,
-        Y_ROTATE_NEG = KeyCode.UpArrow,
-        Y_ROTATE_POS = KeyCode.DownArrow,
+        X_ROTATE_NEG = KeyCode.I,
+        X_ROTATE_POS = KeyCode.K,
+        Y_ROTATE_NEG = KeyCode.J,
+        Y_ROTATE_POS = KeyCode.L,
 
     }
 
@@ -51,8 +51,8 @@ public class CameraController : MonoBehaviour {
 
         // Camera movement
 
-        speed_mod = Input.GetKey((KeyCode)KEYBOARD_INPUT.SPEED_MOD) ? 5f : 1f;
-        float rot_speed = 5f;
+        speed_mod = Input.GetKey((KeyCode)KEYBOARD_INPUT.SPEED_MOD) ? 10f : 5f;
+        float rot_speed = 10f;
 
         foreach (KEYBOARD_INPUT val in Enum.GetValues(typeof(KEYBOARD_INPUT)))
         {
