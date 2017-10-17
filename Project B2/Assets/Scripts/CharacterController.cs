@@ -13,6 +13,7 @@ public class CharacterController : MonoBehaviour {
         BACKWARDS = KeyCode.S,
         STRAFE_LEFT = KeyCode.A,
         STRAFE_RIGHT = KeyCode.D,
+        SPEED_MOD = KeyCode.LeftShift,
 
     }
 
@@ -40,12 +41,24 @@ public class CharacterController : MonoBehaviour {
         if(Input.GetKey((KeyCode)KEYBOARD_INPUT.FORWARDS))
         {
 
-
-            animator.SetFloat("moveZ", 0.5f);
+            if (!Input.GetKey((KeyCode)KEYBOARD_INPUT.SPEED_MOD))
+            {
+                animator.SetFloat("moveZ", 0.5f);
+            } else
+            {
+                animator.SetFloat("moveZ", 1.0f);
+            }
 
         } else if (Input.GetKey((KeyCode)KEYBOARD_INPUT.BACKWARDS))
         {
-            animator.SetFloat("moveZ", -0.5f);
+            if (!Input.GetKey((KeyCode)KEYBOARD_INPUT.SPEED_MOD))
+            {
+                animator.SetFloat("moveZ", -0.5f);
+            }
+            else
+            {
+                animator.SetFloat("moveZ", -1.0f);
+            }
         }
         else
         {
