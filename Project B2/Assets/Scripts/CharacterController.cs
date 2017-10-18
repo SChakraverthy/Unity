@@ -37,35 +37,43 @@ public class CharacterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-        if(Input.GetKey((KeyCode)KEYBOARD_INPUT.FORWARDS))
-        {
+        var x = Input.GetAxis("Horizontal");
+        var y = Input.GetAxis("Vertical");
+        var r = Input.GetAxis("Rotate");
 
-            if (!Input.GetKey((KeyCode)KEYBOARD_INPUT.SPEED_MOD))
-            {
-                animator.SetFloat("moveZ", 0.5f);
-            } else
-            {
-                animator.SetFloat("moveZ", 1.0f);
-            }
 
-        } else if (Input.GetKey((KeyCode)KEYBOARD_INPUT.BACKWARDS))
+        bool run = false;
+
+        if (Input.GetKeyDown("left shift"))
         {
-            if (!Input.GetKey((KeyCode)KEYBOARD_INPUT.SPEED_MOD))
-            {
-                animator.SetFloat("moveZ", -0.5f);
-            }
-            else
-            {
-                animator.SetFloat("moveZ", -1.0f);
-            }
+            run = true;
         }
+
+        if (Input.anyKey == false) { animator.SetBool("move", false); }
         else
         {
-            animator.SetFloat("moveZ", 0f);
+            Move(x, y, r);
+            animator.SetBool("move", true);
         }
 
+    }
+
+    void Move(float x, float y, float r)
+    {
+        animator.SetFloat("velx", x);
+        animator.SetFloat("vely", y);
+        transform.Rotate(0, r, 0);
+        
 
 
-	}
+        //if (run)
+        //{
+
+        transform.position += transform.forward * 10 * y * Time.deltaTime;
+            transform.position += transform.right * 10 * x * Time.deltaTime;
+
+
+        //    }
+
+    }
 }
