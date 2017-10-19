@@ -75,25 +75,15 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            animator.SetFloat("velx", x * 0.5f);
-            animator.SetFloat("vely", y * 0.5f);
+            x = 0.5f * x;
+            y = 0.5f * y;
+            animator.SetFloat("velx", x);
+            animator.SetFloat("vely", y);
         }
 
         transform.Rotate(0, r, 0);
         transform.position += transform.forward * 10 * y * Time.deltaTime;
         transform.position += transform.right * 10 * x * Time.deltaTime;
-
-
-
-
-        /*
-        //if (run)
-        //{
-
-        
-
-
-        //    }*/
 
     }
 }
