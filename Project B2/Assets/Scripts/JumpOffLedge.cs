@@ -7,17 +7,25 @@ public class JumpOffLedge : MonoBehaviour {
     UnityEngine.AI.NavMeshAgent agent;
     Animator animator;
 
-    void Start()
+    /*void Start()
     {
-        animator = GetComponent<animator>();
+        animator = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-    }
+    }*/
 
 	// Update is called once per frame
-	void Update () {
-		if (agent.isOnOffmeshLink)
+	/*void Update () {
+		if (agent.isOnOffMeshLink)
         {
-
+            animator.SetBool("jumpOff", true);
         }
-	}
+	}*/
+
+    /*void LateUpdate()
+    {
+        if (animator.GetBool("jumpOff"))
+        {
+            animator.SetBool("jumpOff", false);
+        }
+    }*/
 }
