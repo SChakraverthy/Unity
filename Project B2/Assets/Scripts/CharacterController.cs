@@ -25,7 +25,8 @@ public class CharacterController : MonoBehaviour
     #region Vars
 
     Animator animator;
-    bool run;
+    private bool run;
+    private bool jump;
 
     #endregion
 
@@ -45,9 +46,6 @@ public class CharacterController : MonoBehaviour
         var y = Input.GetAxis("Vertical");
         var r = Input.GetAxis("Rotate");
 
-        Debug.Log(message: "Horizontal: " + x + "Vertical" + y);
-
-
         run = false;
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -55,35 +53,57 @@ public class CharacterController : MonoBehaviour
             run = true;
         }
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            jump = true;
+
+        }
+
         if (Input.anyKey == false) { animator.SetBool("move", false); }
         else
         {
-            Move(x, y, r);
-            animator.SetBool("move", true);
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                animator.SetTrigger("jump");
+
+                if (animator.GetBool("move") == false)
+                {
+                    animator.SetBool("move", true);
+                    animator.SetFloat("velx", 0f);
+                    animator.SetFloat("vely", 0f);
+                }
+
+            }
+            else
+            {
+                Move(x, y, r);
+                animator.SetBool("move", true);
+            }
+
+
         }
+
+
 
     }
 
     void Move(float x, float y, float r)
     {
 
-        if (run)
-        {
-            animator.SetFloat("velx", x);
-            animator.SetFloat("vely", y);
-
-        }
-        else
+        if (!run)
         {
             x = 0.5f * x;
             y = 0.5f * y;
-            animator.SetFloat("velx", x);
-            animator.SetFloat("vely", y);
         }
 
+        animator.SetFloat("velx", x);
+        animator.SetFloat("vely", y);
+
+
         transform.Rotate(0, r, 0);
-        transform.position += transform.forward * 10 * y * Time.deltaTime;
-        transform.position += transform.right * 10 * x * Time.deltaTime;
+        transform.position += transform.forward * 7 * y * Time.deltaTime;
+        transform.position += transform.right * 7 * x * Time.deltaTime;
 
     }
 }
