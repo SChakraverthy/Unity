@@ -421,6 +421,7 @@ public class BodyMecanim : MonoBehaviour
 
         this.animator.SetBool("FaceAnimation", false);
         this.animator.SetBool("HandAnimation", false);
+        this.animator.SetBool("D_Dance1", false);
     }
     #endregion
 
@@ -698,4 +699,48 @@ public class BodyMecanim : MonoBehaviour
             this.InteractionStop(effectorType, interactionObject);
     }
     #endregion
+
+    #region myFunctions
+
+    /*
+    ///<summary>
+    /// Makes a character dance.
+    /// </summary>
+    public void Dance_1()
+    {
+
+        // Start animation.
+        animator.SetBool("B_Breakdance", true);
+
+
+    }
+    */
+
+    public void DanceAnimation(string DanceMove, bool isActive)
+    {
+
+        if (isActive)
+        {
+            this.ResetAnimation();
+        }
+
+        switch (DanceMove.ToUpper())
+        {
+
+            case "D_DANCE1":
+                this.animator.SetBool("D_Dance1", isActive);
+                break;
+            case "D_DANCE2":
+                this.animator.SetBool("D_Dance2", isActive);
+                break;
+            case "D_DANCE3":
+                this.animator.SetBool("D_Dance3", isActive);
+                break;
+        }
+
+       
+    }
+
+    #endregion
+
 }

@@ -308,4 +308,23 @@ public class BehaviorMecanim : MonoBehaviour
                 new LeafInvoke(turn, stopTurning));
     }
     #endregion
+
+    #region myFunctions
+
+    /// <summary>
+    /// Dance Affordances
+    /// </summary>
+    
+    public Node Node_Dance(Val<String> DanceMove)
+    {
+
+        Func<RunStatus> dance = () => this.Character.DanceAnimation(DanceMove, true);
+        //Func<RunStatus> stopDance = () => this.Character.DanceAnimation(DanceMove, false);
+
+        return new LeafInvoke(dance);
+
+    }
+
+    #endregion
+
 }

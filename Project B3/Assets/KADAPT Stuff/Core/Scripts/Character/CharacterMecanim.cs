@@ -326,4 +326,26 @@ public class CharacterMecanim : MonoBehaviour
         return RunStatus.Running;
     }
     #endregion
+
+    #region myFunctions
+
+    public virtual RunStatus DanceAnimation(
+        Val<string> DanceMove, bool isActive)
+    {
+        this.Body.DanceAnimation(DanceMove.Value, isActive);
+        return RunStatus.Success;
+    }
+
+    /*
+    public virtual RunStatus Dance_1()
+    {
+        //Debug.Log("In this function!");
+        this.Body.Dance_1();
+        return RunStatus.Running;
+
+
+    }
+    */
+    #endregion
+
 }

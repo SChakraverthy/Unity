@@ -30,9 +30,11 @@ public class MyBehaviorTree3 : MonoBehaviour
     {
 
         Vector3 pos = participant2.transform.position;
-        return new Sequence(new LeafWait(1000), this.participant1.GetComponent<BehaviorMecanim>().Node_OrientTowards(pos), 
-            this.participant1.GetComponent<BehaviorMecanim>().Node_GoToUpToRadius(pos, 2.0f), 
-            this.participant2.GetComponent<BehaviorMecanim>().Node_OrientTowards(participant1.transform.position));
+        return new Sequence(this.participant1.GetComponent<BehaviorMecanim>().Node_OrientTowards(pos),
+            this.participant1.GetComponent<BehaviorMecanim>().Node_GoToUpToRadius(pos, 2.5f),
+            this.participant2.GetComponent<BehaviorMecanim>().Node_OrientTowards(participant1.transform.position),
+            new Sequence(this.participant1.GetComponent<BehaviorMecanim>().Node_Dance("D_Dance1")),
+            new LeafWait(1000));
 
     }
 
