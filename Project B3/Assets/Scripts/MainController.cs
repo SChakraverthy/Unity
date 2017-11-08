@@ -28,11 +28,11 @@ public class MainController : MonoBehaviour {
 
     #region vars
 
-    private Transform CameraTransform;
-    private GameObject Ball;
+    private Transform cameraTransform;
+    private GameObject ball;
     private Rigidbody rb;
-    private float speed_mod;
-    private float ball_speed;
+    public float speed_mod;
+    public float ball_speed;
 
 
     #endregion
@@ -42,9 +42,9 @@ public class MainController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        CameraTransform = Camera.main.transform;
-        Ball = GameObject.Find("Ball");
-        rb = Ball.GetComponent<Rigidbody>();
+        cameraTransform = Camera.main.transform;
+        ball = GameObject.Find("Ball");
+        rb = ball.GetComponent<Rigidbody>();
 
 
     }
@@ -68,36 +68,36 @@ public class MainController : MonoBehaviour {
 
                     case KEYBOARD_INPUT.C_FORWARD:
 
-                        CameraTransform.position += (CameraTransform.forward * Time.deltaTime * speed_mod);
+                        cameraTransform.position += (cameraTransform.forward * Time.deltaTime * speed_mod);
                         break;
 
                     case KEYBOARD_INPUT.C_BACKWARDS:
 
-                        CameraTransform.position -= (CameraTransform.forward * Time.deltaTime * speed_mod);
+                        cameraTransform.position -= (cameraTransform.forward * Time.deltaTime * speed_mod);
                         break;
 
                     case KEYBOARD_INPUT.C_UP:
-                        CameraTransform.position += (CameraTransform.up * Time.deltaTime * speed_mod);
+                        cameraTransform.position += (cameraTransform.up * Time.deltaTime * speed_mod);
                         break;
 
                     case KEYBOARD_INPUT.C_DOWN:
-                        CameraTransform.position -= (CameraTransform.up * Time.deltaTime * speed_mod);
+                        cameraTransform.position -= (cameraTransform.up * Time.deltaTime * speed_mod);
                         break;
 
                     case KEYBOARD_INPUT.C_RIGHT:
-                        CameraTransform.position += (CameraTransform.right * Time.deltaTime * speed_mod);
+                        cameraTransform.position += (cameraTransform.right * Time.deltaTime * speed_mod);
                         break;
 
                     case KEYBOARD_INPUT.C_LEFT:
-                        CameraTransform.position -= (CameraTransform.right * Time.deltaTime * speed_mod);
+                        cameraTransform.position -= (cameraTransform.right * Time.deltaTime * speed_mod);
                         break;
 
                     case KEYBOARD_INPUT.C_ROTATENEG:
-                        CameraTransform.Rotate(-Vector3.up * Time.deltaTime * rot_speed);
+                        cameraTransform.Rotate(-Vector3.up * Time.deltaTime * rot_speed);
                         break;
 
                     case KEYBOARD_INPUT.C_ROTATEPOS:
-                        CameraTransform.Rotate(Vector3.up * Time.deltaTime * rot_speed);
+                        cameraTransform.Rotate(Vector3.up * Time.deltaTime * rot_speed);
                         break;
 
                     case KEYBOARD_INPUT.B_FORWARD:
