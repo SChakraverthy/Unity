@@ -314,14 +314,22 @@ public class BehaviorMecanim : MonoBehaviour
     /// <summary>
     /// Dance Affordances
     /// </summary>
-    
-    public Node Node_Dance(Val<String> DanceMove)
+
+    public Node Node_DanceAnimation(Val<string> danceMove, Val<bool> start)
     {
 
-        Func<RunStatus> dance = () => this.Character.DanceAnimation(DanceMove, true);
-        //Func<RunStatus> stopDance = () => this.Character.DanceAnimation(DanceMove, false);
+        return new LeafInvoke(
+            () => this.Character.DanceAnimation(danceMove, start),
+            () => this.Character.DanceAnimation(danceMove, false));
+    }
 
-        return new LeafInvoke(dance);
+    public Node Node_Dance(Val<String> danceMove)
+    {
+
+        return new LeafInvoke(
+           () => this.Character.DanceAnimation(danceMove, true),
+           () => this.Character.DanceAnimation(danceMove, false));
+
 
     }
 

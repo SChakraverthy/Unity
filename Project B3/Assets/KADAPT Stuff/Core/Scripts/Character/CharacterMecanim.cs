@@ -329,10 +329,9 @@ public class CharacterMecanim : MonoBehaviour
 
     #region myFunctions
 
-    public virtual RunStatus DanceAnimation(
-        Val<string> DanceMove, bool isActive)
+    public virtual RunStatus DanceAnimation( Val<string> gestureName, Val<bool> isActive)
     {
-        this.Body.DanceAnimation(DanceMove.Value, isActive);
+        this.Body.DanceAnimation(gestureName.Value, isActive.Value);
         return RunStatus.Success;
     }
 

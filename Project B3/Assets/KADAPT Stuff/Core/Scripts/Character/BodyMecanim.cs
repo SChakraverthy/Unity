@@ -421,7 +421,7 @@ public class BodyMecanim : MonoBehaviour
 
         this.animator.SetBool("FaceAnimation", false);
         this.animator.SetBool("HandAnimation", false);
-        this.animator.SetBool("D_Dance1", false);
+        this.animator.SetBool("DanceAnimation", false);
     }
     #endregion
 
@@ -716,26 +716,29 @@ public class BodyMecanim : MonoBehaviour
     }
     */
 
-    public void DanceAnimation(string DanceMove, bool isActive)
+    public void DanceAnimation(string danceMove, bool isActive)
     {
 
-        if (isActive)
-        {
+        if (isActive == true)
             this.ResetAnimation();
-        }
+        this.animator.SetBool("DanceAnimation", isActive);
 
-        switch (DanceMove.ToUpper())
+        switch (danceMove.ToUpper())
         {
 
-            case "D_DANCE1":
+            case "DANCE1":
                 this.animator.SetBool("D_Dance1", isActive);
                 break;
-            case "D_DANCE2":
+
+            case "DANCE2":
+
                 this.animator.SetBool("D_Dance2", isActive);
                 break;
-            case "D_DANCE3":
+
+            case "DANCE3":
                 this.animator.SetBool("D_Dance3", isActive);
                 break;
+           
         }
 
        
