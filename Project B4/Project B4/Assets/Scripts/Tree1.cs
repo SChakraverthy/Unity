@@ -29,11 +29,11 @@ public class Tree1 : MonoBehaviour
     {
 
         Vector3 chefPos = this.chef.transform.position;
-        Vector3 chefPosHead = chefPos + new Vector3(0, 3.0f, 0);
         Vector3 waiterPos = this.waiter.transform.position;
 
 
-        return new Sequence(this.waiter.GetComponent<BehaviorMecanim>().Node_GoToUpToRadius(chefPos, 3.0f), 
+        return new Sequence(this.waiter.GetComponent<BehaviorMecanim>().Node_GoToUpToRadius(chefPos, 10.0f), 
+            this.waiter.GetComponent<BehaviorMecanim>().Node_OrientTowards(chefPos), 
             new LeafWait(500), this.chef.GetComponent<BehaviorMecanim>().Node_OrientTowards(waiterPos));
 
     }
