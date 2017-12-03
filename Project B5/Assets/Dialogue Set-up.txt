@@ -1,0 +1,17 @@
+First, put the main character onto a scene.
+
+Then, drag the conversation script to them.
+
+Create a UI Text, and add this to the conversation script "Dialoguebox" slot
+
+Create another character, and give it the tag "NPC"
+
+Drag the Dialogue script to them, and put a name into their script
+
+Create a text file in the Project B5 folder with the name you gave the character. Also add text to it.
+
+Drag the "Player Controller v2" script to the main character instead of the original -- this new one allows you to press "I" to interact with players/objects, along with preventing you from moving when you start an interaction. 
+
+Create a circle/sphere flattened into a circle
+
+Drag this circle to the NPC character to make it clear they can be interacted with
