@@ -109,6 +109,26 @@ public class PlayerController : MonoBehaviour
             count++;
             SetCountText();
         }
+
+        if (other.gameObject.CompareTag("Teleport"))
+        {
+            GameObject manager = GameObject.Find("Button Manager");
+
+            if (other.gameObject.name == "Teleport Future")
+            {
+                
+                manager.GetComponent<InGameScript>().LoadNewLevel("b5futurezone");
+
+            }
+
+            if(other.gameObject.name == "Teleport Past")
+            {
+
+                manager.GetComponent<InGameScript>().LoadNewLevel("b5pastzone");
+
+            }
+
+        }
     }
 
     void SetCountText()
