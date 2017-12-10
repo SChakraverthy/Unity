@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Marker
   - NoHighlight
+  - Collectible
   layers:
   - Default
   - TransparentFX

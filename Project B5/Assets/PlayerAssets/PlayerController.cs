@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,7 +25,10 @@ public class PlayerController : MonoBehaviour
     #region Vars
 
     Animator animator;
+    public Text countText;
 	public bool frozen;
+
+    private int count;
 
     #endregion
 
@@ -38,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
         animator = GetComponent<Animator>();
 		frozen = false;
+        count = 0;
+        SetCountText();
     }
 
     // Update is called once per frame
@@ -93,6 +99,21 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Move", false);
         animator.SetFloat("VelX", 0f);
         animator.SetFloat("VelY", 0f);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectible"))
+        {
+            other.gameObject.SetActive(false);
+            count++;
+            SetCountText();
+        }
+    }
+
+    void SetCountText()
+    {
+        countText.text = count.ToString();
     }
 
     #endregion
