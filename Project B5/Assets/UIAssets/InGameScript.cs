@@ -18,6 +18,13 @@ public class InGameScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
+            GameObject menuUI = GameObject.Find("Win Panel");
+
+            if (menuUI != null && menuUI.activeInHierarchy)
+            {
+                return;
+            }
+
             if (InGamePanel.activeInHierarchy)
             {
                 InGamePanel.SetActive(false);
