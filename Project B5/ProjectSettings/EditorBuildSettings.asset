@@ -11,3 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/b5hubtown.unity
     guid: 4a9748ad701c56b4dac30566f0831ab1
+  - enabled: 1
+    path: Assets/b5pastzone.unity
+    guid: a48afcc4f2620ef4aa38ff30fcebace4
+  - enabled: 1
+    path: Assets/b5futurezone.unity
+    guid: 0600a540d49f667479ab09d5a177716b
