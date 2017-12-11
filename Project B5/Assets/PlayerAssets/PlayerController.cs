@@ -128,6 +128,11 @@ public class PlayerController : MonoBehaviour
 
             }
 
+            if(other.gameObject.name == "Teleport Hub")
+            {
+                manager.GetComponent<InGameScript>().LoadNewLevel("b5hubtown");
+            }
+
         }
     }
 
