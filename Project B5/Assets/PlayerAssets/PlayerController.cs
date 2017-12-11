@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public Text countText;
 	public bool frozen;
 
-    private int count;
+    public int count;
 
     #endregion
 
