@@ -17,11 +17,10 @@ public class Dialogue : MonoBehaviour {
 	StreamReader readLines;
 	public int lineCount;
 	public String line;
-	public GameObject Sphere;
 
 	// Use this for initialization
 	void Start () {
-		lines = new String[10];
+		lines = new String[30];
 		interacting = false;
 		lineIndex = 0;
 		name = this.name;
@@ -32,13 +31,12 @@ public class Dialogue : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Sphere.transform.position = this.transform.position;
 	}
 
 	void getLines(){
 		String dataPath = Application.dataPath;
 		try{
-			readLines = new StreamReader (dataPath + "/" + name + ".txt", Encoding.Default);
+			readLines = new StreamReader (dataPath + "/Dialogue/" + name + ".txt", Encoding.Default);
 			using(readLines){
 				while((line = readLines.ReadLine()) != null){
 					lines[lineIndex] = line;
