@@ -41,10 +41,6 @@ public class Intro_Cutscene : MonoBehaviour {
 			cameras [3].enabled = false;
 			cameras [4].enabled = true;
 			break;
-		case 14:
-			cameras [4].enabled = false;
-			cameras [5].enabled = true;
-			break;
 		case 16:
 			SceneManager.LoadScene ("b5hubtown");
 			break;

@@ -19,16 +19,22 @@ public class Spawn : MonoBehaviour {
 	void generateCharacter(){
 		float range = 60.0f;
 		float difference = float.Parse(resource_count.text) - float.Parse(characterCost.text);
+
 		if (difference >= 0f) {
 			resource_count.text = difference.ToString ();
+
 			Instantiate (character);
+
 			Vector3 center = new Vector3 (-100.4f, 0.0f, -35.0f);
 			Vector3 result;
+
 			bool spotFound = false;
 			while (!spotFound) {
 				for (int i = 0; i < 30; i++) {
+					
 					Vector3 randomPoint = center + Random.insideUnitSphere * range;
 					NavMeshHit hit;
+
 					if (NavMesh.SamplePosition (randomPoint, out hit, 1.0f, NavMesh.AllAreas)) {
 						result = hit.position;
 						if (Physics.OverlapSphere (result, 1.0f).Length <= 2) {
